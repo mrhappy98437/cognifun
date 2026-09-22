@@ -22,6 +22,82 @@ body[data-page="books"] .site-stage { background-image:url("../../images/desktop
 .page-lede { max-width:650px; margin:0 0 28px; font-size:19px; line-height:1.5; }
 .copy-block { max-width:760px; padding:26px 30px; background:rgba(255,248,236,.88); border-left:5px solid var(--accent); font-size:18px; line-height:1.6; }
 .copy-block p { margin:0 0 16px; }.copy-block p:last-child { margin-bottom:0; }
+.about-wireframe { display:flex; flex-direction:column; gap:18px; }
+.about-wireframe .page-title { margin-bottom:6px; }
+.wire-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.wire-box { min-height:132px; padding:20px 24px; background:rgba(255,248,236,.9); border:1px solid rgba(23,23,23,.12); border-left:4px solid #b8f0d4; box-shadow:3px 3px 0 rgba(23,23,23,.08); }
+.wire-box-wide { min-height:150px; }
+.wire-box-coral { border-left-color:#ef765d; }
+.wire-box-lavender { border-left-color:#c8b1ee; }
+.wire-box-yellow { border-left-color:#e8c84a; }
+.wire-box h2 { margin:0 0 20px; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.placeholder-lines { display:flex; flex-direction:column; gap:9px; }
+.placeholder-lines i { display:block; width:92%; height:10px; border-radius:4px; background:rgba(23,23,23,.14); }
+.placeholder-lines i:nth-child(2) { width:84%; }.placeholder-lines i.short { width:48%; }
+.site-content.about-wireframe { width:100%; max-width:none; }
+.about-top-grid { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(170px,.7fr) minmax(170px,.72fr); gap:18px; align-items:stretch; }
+.about-intro { padding:0 8px 10px 0; }
+.about-intro .page-title { max-width:760px; }
+.about-rule,.about-card-rule { width:88px; height:3px; margin:18px 0; background:#d3b15a; }
+.about-lede { max-width:620px; margin:0 0 10px; font-family:Georgia,serif; font-size:20px; line-height:1.35; }
+.about-photo-placeholder { display:flex; min-height:260px; flex-direction:column; align-items:center; justify-content:center; border:1px dashed rgba(23,23,23,.35); background:rgba(255,248,236,.36); color:rgba(23,23,23,.58); text-align:center; }
+.about-photo-placeholder span { font-size:13px; font-weight:800; letter-spacing:.1em; }
+.about-photo-placeholder small { margin-top:8px; font-size:12px; }
+.about-card { padding:22px; background:rgba(255,248,236,.86); border:1px solid rgba(23,23,23,.16); box-shadow:3px 3px 0 rgba(23,23,23,.07); }
+.about-card h2 { margin:0 0 24px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
+.about-card h3 { margin:0 0 12px; font-family:Georgia,serif; font-size:24px; line-height:1.12; }
+.about-card p { margin:0; font-size:16px; line-height:1.45; }
+.about-belief { display:flex; flex-direction:column; justify-content:space-between; }
+.about-belief p { font-family:Georgia,serif; font-size:21px; line-height:1.3; }
+.about-belief strong { font-size:12px; letter-spacing:.12em; line-height:1.5; text-transform:uppercase; }
+.about-card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:18px; }
+.about-card-pink { background:rgba(255,221,218,.68); }
+.about-card-mint { background:rgba(226,239,222,.72); }
+.about-card-blue { background:rgba(222,237,241,.74); }
+.about-who { display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:center; margin-top:18px; background:rgba(255,237,198,.72); }
+.about-books-placeholder { display:flex; min-height:115px; align-items:center; justify-content:center; border:1px dashed rgba(23,23,23,.35); color:rgba(23,23,23,.58); font-size:13px; font-weight:800; letter-spacing:.1em; line-height:1.5; text-align:center; }
+.site-content.learning-layout { max-width:none; }
+.learning-layout { display:flex; flex-direction:column; gap:18px; }
+.learning-intro { display:flex; align-items:end; justify-content:space-between; gap:36px; }
+.learning-intro .page-title { margin-bottom:0; }
+.learning-intro-copy { max-width:420px; margin:0 0 10px; font-family:Georgia,serif; font-size:21px; line-height:1.35; }
+.learning-feature { display:grid; grid-template-columns:minmax(260px,.8fr) minmax(0,1.4fr); gap:18px; align-items:stretch; }
+.learning-portrait-placeholder,.learning-resource-placeholder { display:flex; min-height:360px; flex-direction:column; align-items:center; justify-content:center; border:1px dashed rgba(23,23,23,.35); background:rgba(255,248,236,.38); color:rgba(23,23,23,.58); text-align:center; }
+.learning-portrait-placeholder span,.learning-resource-placeholder span { font-size:13px; font-weight:800; letter-spacing:.1em; }
+.learning-portrait-placeholder small,.learning-resource-placeholder small { max-width:240px; margin-top:8px; font-size:12px; line-height:1.4; }
+.learning-feature-copy { display:flex; min-width:0; flex-direction:column; gap:18px; }
+.learning-card { padding:22px; border:1px solid rgba(23,23,23,.16); box-shadow:3px 3px 0 rgba(23,23,23,.07); }
+.learning-card h2 { margin:0 0 20px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
+.learning-card h3 { margin:0 0 12px; font-family:Georgia,serif; font-size:25px; line-height:1.12; }
+.learning-card p { margin:0; font-size:16px; line-height:1.48; }
+.learning-card-idea { flex:1; background:rgba(255,248,236,.88); }
+.learning-card-note { background:rgba(226,239,222,.72); }
+.learning-card-note p { font-family:Georgia,serif; font-size:20px; line-height:1.3; }
+.learning-two-column { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.learning-card-family { position:relative; background:rgba(255,221,218,.68); }
+.learning-card-classroom { position:relative; background:rgba(222,237,241,.74); }
+.learning-icon-placeholder { display:flex; width:48px; height:48px; align-items:center; justify-content:center; margin-top:22px; border:1px dashed rgba(23,23,23,.35); font-size:9px; font-weight:800; letter-spacing:.08em; }
+.learning-resource-placeholder { min-height:190px; }
+.learning-lower-cards .learning-card-practice { background:rgba(255,237,198,.72); }
+.learning-lower-cards .learning-card-printables { background:rgba(226,239,222,.72); }
+.learning-closing { background:rgba(255,248,236,.88); }
+.site-content.courses-layout { max-width:none; }
+.courses-layout { display:flex; flex-direction:column; gap:20px; }
+.courses-intro { display:flex; align-items:end; justify-content:space-between; gap:36px; }
+.courses-intro .page-title { margin-bottom:0; }
+.courses-intro > p { max-width:460px; margin:0 0 10px; font-family:Georgia,serif; font-size:21px; line-height:1.35; }
+.course-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.course-card { display:flex; min-height:330px; flex-direction:column; justify-content:space-between; gap:20px; padding:18px; border:1px solid rgba(23,23,23,.16); box-shadow:3px 3px 0 rgba(23,23,23,.07); }
+.course-card-english { background:rgba(255,221,218,.68); }.course-card-science { background:rgba(226,239,222,.72); }.course-card-history { background:rgba(222,237,241,.74); }
+.course-image-placeholder { display:flex; min-height:120px; align-items:center; justify-content:center; border:1px dashed rgba(23,23,23,.35); color:rgba(23,23,23,.58); font-size:12px; font-weight:800; letter-spacing:.1em; line-height:1.5; text-align:center; }
+.course-label { margin:0 0 10px; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.course-card h2 { margin:0 0 12px; font-family:Georgia,serif; font-size:25px; line-height:1.12; }.course-card p:not(.course-label) { margin:0; font-size:16px; line-height:1.45; }
+.course-meta { display:inline-block; margin-top:18px; font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+.course-outline { display:grid; grid-template-columns:minmax(250px,.7fr) minmax(0,1.5fr); gap:18px; padding:22px; background:rgba(255,248,236,.86); border:1px solid rgba(23,23,23,.16); box-shadow:3px 3px 0 rgba(23,23,23,.07); }
+.course-outline-heading h2 { margin:0 0 12px; font-family:Georgia,serif; font-size:31px; line-height:1.08; }.course-outline-heading p:last-child { margin:0; font-size:16px; line-height:1.48; }
+.module-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }.module-track { padding:16px; border-left:4px solid #ef765d; background:rgba(255,255,255,.5); }.module-track-science { border-left-color:#9ac7a8; }.module-track-history { border-left-color:#8ebbc7; }
+.module-track h3 { margin:0 0 12px; font-size:15px; }.module-track ol { margin:0; padding-left:20px; font-size:14px; line-height:1.65; }
+.courses-closing { display:grid; grid-template-columns:220px 1fr; gap:28px; align-items:center; padding:22px; background:rgba(255,237,198,.72); border:1px solid rgba(23,23,23,.16); box-shadow:3px 3px 0 rgba(23,23,23,.07); }.courses-graphic-placeholder { display:flex; min-height:120px; align-items:center; justify-content:center; border:1px dashed rgba(23,23,23,.35); color:rgba(23,23,23,.58); font-size:12px; font-weight:800; letter-spacing:.1em; line-height:1.5; text-align:center; }.courses-closing h2 { margin:0 0 12px; font-family:Georgia,serif; font-size:28px; }.courses-closing p:last-child { margin:0; font-size:16px; line-height:1.48; }
 .home-layout { display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:end; }
 .home-note { padding:22px; background:rgba(255,248,236,.9); border:2px solid var(--ink); box-shadow:5px 5px 0 var(--shadow); }
 .home-content .home-note { width:min(420px,100%); margin:190px 0 0 auto; }
@@ -43,6 +119,22 @@ body[data-page="books"] .site-stage { background-image:url("../../images/desktop
 .site-shell {
     width: min(1600px, calc(100% - 48px));
     margin: 32px auto;
+}
+
+@media (max-width:640px) {
+    .wire-row { grid-template-columns:1fr; gap:14px; }
+    .wire-box { padding:18px; }
+    .about-wireframe { gap:14px; }
+    .about-top-grid,.about-card-grid,.about-who { grid-template-columns:1fr; }
+    .about-photo-placeholder { min-height:180px; }
+    .about-who { gap:18px; }
+    .learning-intro { display:block; }
+    .learning-intro-copy { margin-top:18px; }
+    .learning-feature,.learning-two-column { grid-template-columns:1fr; }
+    .learning-portrait-placeholder { min-height:280px; }
+    .courses-intro { display:block; }
+    .courses-intro > p { margin-top:18px; }
+    .course-grid,.course-outline,.module-list,.courses-closing { grid-template-columns:1fr; }
 }
 
 .site-stage {
@@ -108,4 +200,3 @@ body[data-page="books"] .site-stage { background-image:url("../../images/desktop
         margin-top: 10px;
     }
 }
-
