@@ -1,0 +1,387 @@
+/*
+ * NJSP launcher components
+ *
+ * The window frame is visual decoration. The content inside it remains normal
+ * HTML so app names, statuses, buttons, and error messages stay accessible.
+ */
+
+.njsp-main {
+    position: absolute;
+    top: var(--njsp-menu-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 44px 60px calc(var(--njsp-dock-height) + 18px);
+}
+
+.njsp-view-category .njsp-page-heading {
+    display: none;
+}
+
+.njsp-page-heading {
+    max-width: 860px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+.njsp-page-title {
+    margin: 0 0 7px;
+    color: var(--njsp-white);
+    font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: clamp(22px, 2.2vw, 34px);
+    line-height: 1.15;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.njsp-page-description {
+    margin: 0;
+    color: var(--njsp-muted);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.njsp-summary {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+
+.njsp-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 360px));
+    align-items: start;
+    gap: 22px;
+    max-width: 1160px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.njsp-book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1160px;
+    margin: 0 auto 24px;
+}
+
+.njsp-book-card {
+    min-width: 0;
+    padding: 12px;
+    border: 3px solid #1a1a1a;
+    border-radius: 16px;
+    background: #fff8ec;
+    color: #1a1a1a;
+    box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+.njsp-book-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+}
+
+.njsp-book-title {
+    margin: 12px 0 6px;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.njsp-book-meta {
+    margin: 0 0 7px;
+    color: #6b5559;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.njsp-book-description {
+    margin: 0;
+    color: #3e3435;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.njsp-app-section {
+    min-width: 0;
+}
+
+.njsp-app-section + .njsp-app-section {
+    margin-top: 30px;
+}
+
+.njsp-section-title {
+    margin: 0 0 10px;
+    color: var(--njsp-white);
+    font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+/*
+ * popup-window-v2.png is 1672x1238. Its deeper content area gives metadata and
+ * longer descriptions room to breathe while every card keeps the same ratio.
+ */
+.njsp-app-window {
+    position: relative;
+    min-width: 0;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.njsp-app-window-content {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 30px 34px 28px;
+    border: 3px solid #1a1a1a;
+    border-radius: 16px;
+    background: #fff8ec;
+    box-shadow: 4px 4px 0 #1a1a1a;
+    color: #1a1a1a;
+}
+
+.njsp-app-window.unavailable .njsp-app-window-content {
+    background: #eee8e5;
+    color: #4d4447;
+}
+
+.njsp-app-name {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: clamp(13px, 1.2vw, 17px);
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    min-height: 2.4em;
+}
+
+.njsp-app-target {
+    margin-top: 6px;
+    overflow: hidden;
+    color: #745d63;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.njsp-app-meta {
+    display: grid;
+    gap: 3px;
+    margin-top: 10px;
+    min-width: 0;
+    color: #5d4c51;
+    font: 9.5px/1.25 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.njsp-app-meta-row {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    min-width: 0;
+}
+
+.njsp-app-meta-label {
+    padding-right: 6px;
+    color: #745d63;
+    font-weight: 700;
+}
+
+.njsp-app-meta-value {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.njsp-app-description {
+    display: -webkit-box;
+    flex: 0 1 auto;
+    margin: 10px 0 12px;
+    min-height: 0;
+    overflow: hidden;
+    color: #5d4c51;
+    font-size: 12px;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.njsp-app-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.njsp-app-status {
+    min-width: 0;
+    overflow: hidden;
+    color: #28734f;
+    font-size: 11px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.njsp-app-window.unavailable .njsp-app-status {
+    color: #9b3838;
+}
+
+.njsp-open-button,
+.njsp-toolbar-button,
+.njsp-dialog-button {
+    border: 1px solid #8c3d59;
+    border-radius: 4px;
+    background: #b83060;
+    color: var(--njsp-white);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.njsp-open-button {
+    flex: 0 0 auto;
+    min-width: 74px;
+    padding: 8px 12px;
+    box-shadow: 2px 2px 0 rgba(72, 18, 42, 0.22);
+}
+
+.njsp-open-button:hover,
+.njsp-toolbar-button:hover,
+.njsp-dialog-button:hover,
+.njsp-open-button:focus-visible,
+.njsp-toolbar-button:focus-visible,
+.njsp-dialog-button:focus-visible {
+    background: #8d204b;
+}
+
+.njsp-open-button:active,
+.njsp-toolbar-button:active,
+.njsp-dialog-button:active {
+    transform: translate(1px, 1px);
+}
+
+.njsp-open-button:disabled,
+.njsp-toolbar-button:disabled,
+.njsp-dialog-button:disabled {
+    border-color: #9b9697;
+    background: #aaa4a5;
+    color: #eee;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.njsp-empty {
+    max-width: 620px;
+    margin: 40px auto;
+    padding: 34px 28px;
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px dashed rgba(255, 255, 255, 0.5);
+    color: var(--njsp-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.njsp-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1400;
+    max-width: min(440px, calc(100vw - 48px));
+    padding: 12px 16px;
+    background: #1d1016;
+    border: 1px solid #f5b0bc;
+    color: var(--njsp-white);
+    font-size: 13px;
+    line-height: 1.4;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.njsp-toast.is-error {
+    background: #681f35;
+}
+
+.njsp-error-dialog {
+    width: min(720px, calc(100vw - 40px));
+    padding: 22px;
+    background: #fffaf1;
+    border: 2px solid #8c3d59;
+    color: var(--njsp-ink);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.36);
+}
+
+.njsp-error-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.68);
+}
+
+.njsp-error-dialog h2 {
+    margin: 0 0 10px;
+    color: #8d204b;
+    font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 20px;
+}
+
+.njsp-error-dialog p {
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+    color: #5d4c51;
+}
+
+.njsp-error-output {
+    max-height: 320px;
+    overflow: auto;
+    margin: 0 0 16px;
+    padding: 14px;
+    background: #1d1016;
+    color: #fffaf1;
+    font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.njsp-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.njsp-dialog-button {
+    padding: 8px 12px;
+}
+
+@media (max-width: 1250px) {
+    .njsp-category-grid {
+        grid-template-columns: repeat(2, minmax(0, 360px));
+    }
+}
+
+@media (max-width: 760px) {
+    .njsp-main {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .njsp-category-grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 520px;
+    }
+
+    .njsp-app-window-content {
+        padding: 14px 16px 12px;
+    }
+}

@@ -1,0 +1,186 @@
+/*
+ * NJSP responsive rules
+ *
+ * Desktop uses a reference-style 1600x1000 stage. launcher-ui.js can add the
+ * `njsp-layout-mobile` class when the viewport is too narrow for that stage;
+ * these rules then let the same markup flow naturally without a second HTML
+ * page or a second category implementation.
+ */
+
+.njsp-layout-mobile .njsp-stage-shell {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    margin: 18px 0;
+    overflow: visible;
+}
+
+.njsp-layout-mobile .njsp-stage {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+    transform: none !important;
+}
+
+.njsp-layout-mobile .njsp-menubar {
+    position: sticky;
+    top: 0;
+    flex-wrap: wrap;
+    min-height: 38px;
+    padding: 3px 10px;
+}
+
+.njsp-layout-mobile .njsp-menubar-brand {
+    max-width: 44vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.njsp-layout-mobile .njsp-nav-menus {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.njsp-layout-mobile .njsp-nav-menu-trigger {
+    height: 32px;
+    padding: 0 9px;
+}
+
+.njsp-layout-mobile .njsp-menubar-right {
+    margin-left: auto;
+}
+
+.njsp-layout-mobile .njsp-main {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 26px 18px 42px;
+}
+
+.njsp-layout-mobile .njsp-page-heading {
+    margin-bottom: 20px;
+}
+
+.njsp-layout-mobile .njsp-page-title {
+    font-size: 24px;
+}
+
+.njsp-layout-mobile .njsp-category-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+}
+
+.njsp-layout-mobile .njsp-app-window-content {
+    padding: 16px 18px 14px;
+}
+
+.njsp-layout-mobile .njsp-dock-wrapper {
+    position: relative;
+    height: auto;
+    min-height: 190px;
+    margin-top: 14px;
+    padding-bottom: 20px;
+}
+
+.njsp-layout-mobile .njsp-dock-platform {
+    position: absolute;
+    bottom: 0;
+    width: min(var(--njsp-dock-platform-width), 100vw);
+    max-width: var(--njsp-dock-platform-width);
+}
+
+.njsp-layout-mobile .njsp-dock-icons {
+    position: relative;
+    bottom: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(72px, 1fr));
+    width: min(360px, calc(100vw - 36px));
+    gap: 10px 5px;
+    padding-bottom: 68px;
+    transform: translateX(-50%);
+    white-space: normal;
+}
+
+.njsp-layout-mobile .njsp-dock-icon img {
+    width: 64px;
+    height: 64px;
+}
+
+.njsp-layout-mobile .njsp-dock-icon {
+    width: var(--njsp-dock-slot-width);
+    min-width: var(--njsp-dock-slot-width);
+}
+
+.njsp-layout-mobile .njsp-dock-icon-label {
+    max-width: 110px;
+    overflow: hidden;
+    font-size: 9px;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+@media (pointer: coarse) {
+    .njsp-open-button,
+    .njsp-toolbar-button,
+    .njsp-dialog-button,
+    .njsp-nav-menu-trigger,
+    .njsp-dropdown-item {
+        min-height: 42px;
+    }
+
+    .njsp-dock-icon {
+        min-width: 72px;
+        min-height: 84px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .njsp-dock-icon:hover,
+    .njsp-dock-icon:active {
+        transform: translateY(var(--njsp-icon-y, 0px));
+    }
+}
+
+@media (max-width: 420px) {
+    .njsp-layout-mobile .njsp-menubar-brand {
+        max-width: 58vw;
+        margin-right: 0;
+    }
+
+    .njsp-layout-mobile .njsp-menubar-time {
+        display: none;
+    }
+
+    .njsp-layout-mobile .njsp-app-window-content {
+        padding: 12px 14px 11px;
+    }
+
+    .njsp-layout-mobile .njsp-app-description {
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media (max-width: 900px) {
+    .njsp-book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}

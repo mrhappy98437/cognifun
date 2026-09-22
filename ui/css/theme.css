@@ -1,0 +1,368 @@
+/*
+ * NJSP launcher theme
+ *
+ * Shared desktop shell only. App cards, launch buttons, and diagnostics stay
+ * in launcher.css so the visual frame can be changed without changing the
+ * launch behaviour.
+ */
+
+:root {
+    --njsp-black: #050505;
+    --njsp-ink: #1a1a1a;
+    --njsp-pink: #fff8ec;
+    --njsp-pink-border: #1a1a1a;
+    --njsp-pink-hover: #ff6b5b;
+    --njsp-white: #ffffff;
+    --njsp-muted: rgba(255, 255, 255, 0.78);
+    --njsp-stage-width: 1600px;
+    --njsp-stage-height: 1000px;
+    --njsp-stage-top-gap: 52px;
+    --njsp-stage-bottom-gap: 68px;
+    --njsp-menu-height: 32px;
+    --njsp-dock-height: 260px;
+    --njsp-dock-platform-width: 720px;
+    --njsp-dock-icon-size: 72px;
+    --njsp-dock-slot-width: 112px;
+    --njsp-dock-icon-gap: 0px;
+    --njsp-dock-icons-bottom: 72px;
+    --njsp-dock-label-size: 8px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    min-height: 100%;
+    background-color: #f7f7f4;
+    background-image: radial-gradient(#c9c9c9 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f7f7f4;
+    background-image: radial-gradient(#c9c9c9 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--njsp-white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.njsp-viewport-rails {
+    display: none;
+}
+
+.njsp-viewport-rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    opacity: 0.95;
+}
+
+.njsp-viewport-rail-left {
+    left: 0;
+    background: linear-gradient(180deg, #db3c8b 0%, #c82a8d 100%);
+}
+
+.njsp-viewport-rail-right {
+    right: 0;
+    background: linear-gradient(180deg, #5ad0ff 0%, #46b8f6 100%);
+}
+
+.njsp-site-shell {
+    position: relative;
+    min-height: 100vh;
+}
+
+.njsp-stage-shell {
+    position: relative;
+    width: min(var(--njsp-stage-width), calc(100% - 48px));
+    height: var(--njsp-stage-height);
+    min-height: 0;
+    margin: var(--njsp-stage-top-gap) auto var(--njsp-stage-bottom-gap);
+    overflow: visible;
+}
+
+.njsp-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--njsp-stage-width);
+    height: var(--njsp-stage-height);
+    overflow: hidden;
+    background: url("../../images/desktop/background-03.png") center / cover no-repeat;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform-origin: 0 0;
+}
+
+/* Shared reference-style file bar. The target page will supply its own links. */
+.njsp-menubar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    min-height: var(--njsp-menu-height);
+    padding: 0 12px;
+    background: rgba(255, 248, 236, 0.94);
+    border-bottom: 2px solid var(--njsp-pink-border);
+    color: var(--njsp-ink);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.njsp-menubar-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-right: 18px;
+    color: var(--njsp-ink);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.njsp-nav-menus {
+    display: flex;
+    min-width: 0;
+}
+
+.njsp-nav-menu {
+    position: relative;
+}
+
+.njsp-nav-menu-trigger {
+    display: flex;
+    align-items: center;
+    height: var(--njsp-menu-height);
+    padding: 0 13px;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--njsp-ink);
+    font-size: 13px;
+}
+
+.njsp-nav-menu-trigger:hover,
+.njsp-nav-menu.is-open .njsp-nav-menu-trigger {
+    background: rgba(0, 0, 0, 0.13);
+}
+
+.njsp-nav-menu-dropdown {
+    position: absolute;
+    top: var(--njsp-menu-height);
+    left: 0;
+    z-index: 600;
+    display: none;
+    min-width: 190px;
+    padding: 3px 0;
+    background: var(--njsp-pink);
+    border: 1px solid var(--njsp-pink-border);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.njsp-nav-menu.is-open .njsp-nav-menu-dropdown {
+    display: block;
+}
+
+.njsp-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 7px 20px;
+    border: 0;
+    background: transparent;
+    color: var(--njsp-ink);
+    font-size: 13px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.njsp-dropdown-item:hover,
+.njsp-dropdown-item:focus-visible {
+    background: var(--njsp-pink-hover);
+    color: var(--njsp-white);
+}
+
+.njsp-dropdown-item[aria-disabled="true"] {
+    color: #777;
+    cursor: default;
+}
+
+.njsp-menubar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    margin-left: auto;
+    color: var(--njsp-ink);
+    font-size: 12px;
+}
+
+.njsp-menubar-right a {
+    overflow: hidden;
+    color: var(--njsp-ink);
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.njsp-menubar-right a:hover,
+.njsp-menubar-right a:focus-visible {
+    text-decoration: underline;
+}
+
+.njsp-menubar-time {
+    min-width: 38px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.njsp-dock-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 400;
+    height: var(--njsp-dock-height);
+    pointer-events: none;
+}
+
+.njsp-dock-platform {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: var(--njsp-dock-platform-width);
+    max-width: none;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.njsp-dock-icons {
+    position: absolute;
+    bottom: var(--njsp-dock-icons-bottom);
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--njsp-dock-icon-gap);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: auto;
+}
+
+.njsp-dock-icon {
+    display: flex;
+    width: var(--njsp-dock-slot-width);
+    min-width: var(--njsp-dock-slot-width);
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--njsp-white);
+    cursor: pointer;
+    font: inherit;
+    transform: translateY(var(--njsp-icon-y, 0px));
+    transition: transform 0.15s ease;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.njsp-dock-icon:hover {
+    transform: translateY(calc(var(--njsp-icon-y, 0px) - 10px)) scale(1.14);
+}
+
+.njsp-dock-icon:active {
+    transform: translateY(calc(var(--njsp-icon-y, 0px) - 3px)) scale(0.91);
+    transition: transform 0.07s ease;
+}
+
+.njsp-dock-icon img {
+    display: block;
+    width: var(--njsp-dock-icon-size);
+    height: var(--njsp-dock-icon-size);
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.55));
+}
+
+.njsp-dock-icon-label {
+    display: block;
+    width: 100%;
+    min-height: 18px;
+    max-width: var(--njsp-dock-slot-width);
+    margin-top: 5px;
+    overflow-wrap: normal;
+    color: var(--njsp-white);
+    font-size: var(--njsp-dock-label-size);
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    line-height: 1.1;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.95);
+    text-align: center;
+    text-transform: uppercase;
+    white-space: normal;
+}
+
+.njsp-stage.is-static .njsp-dock-icon,
+.njsp-stage.is-static .njsp-dock-icon:hover,
+.njsp-stage.is-static .njsp-dock-icon:active {
+    transform: translateY(var(--njsp-icon-y, 0px));
+    transition: none;
+}
+
+@media (max-width: 900px) {
+    .njsp-menubar-brand {
+        max-width: 30vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .njsp-menubar-right a {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .njsp-stage-shell {
+        min-height: 100vh;
+    }
+
+    .njsp-nav-menu-trigger {
+        padding: 0 8px;
+    }
+
+    .njsp-dock-icons {
+        gap: 8px;
+        transform: translateX(-50%) scale(0.82);
+        transform-origin: bottom center;
+    }
+
+    .njsp-dock-platform {
+        transform: translateX(-50%) scale(0.82);
+        transform-origin: bottom center;
+    }
+}

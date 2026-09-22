@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.before-*
+venv/
+launcher.py
+mockups/
+theme-source/
